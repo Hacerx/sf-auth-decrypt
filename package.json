@@ -1,0 +1,13 @@
+{
+  "name": "sf-auth-decrypt",
+  "version": "1.0.0",
+  "description": "A minimal module to decrypt salesforce auth tokens stored in the .sfdx folder",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
