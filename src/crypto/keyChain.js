@@ -7,7 +7,6 @@
 import { keyChainImpl } from './keyChainImpl.js';
 import { getBoolean } from '../utils/env.js';
 
-// exports.retrieveKeychain = void 0;
 /**
  * Gets the os level keychain impl.
  *
@@ -45,7 +44,3 @@ export const retrieveKeychain = async (platform) => {
         throw new Error(`Unsupported Operating System: ${platform}`);
     }
 };
-// exports.retrieveKeychain = retrieveKeychain;
-// # sourceMappingURL=keyChain.js.map
-
-export default retrieveKeychain;

@@ -82,5 +82,3 @@ export class SecureBuffer {
         crypto.randomFillSync(targetBuffer);
     }
 }
-// exports.SecureBuffer = SecureBuffer;
-// # sourceMappingURL=secureBuffer.js.map

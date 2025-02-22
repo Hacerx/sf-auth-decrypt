@@ -17,7 +17,6 @@ export async function getOrg(path){
 
     const org = await readFile(path, 'utf8');
     const orgEncrypted = JSON.parse(org);
-    console.log(orgEncrypted);
     const orgDecrypted = crypto.decryptJson(orgEncrypted);
     return orgDecrypted;
 }

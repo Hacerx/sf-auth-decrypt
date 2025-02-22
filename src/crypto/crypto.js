@@ -4,7 +4,6 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-/* eslint-disable no-void */
 import crypto from 'crypto';
 import os from 'os';
 import { Global } from '../utils/global.js';
@@ -82,23 +81,6 @@ export class Crypto {
     constructor (options) {
         this.key = new SecureBuffer();
         this.options = options ?? {};
-    }
-
-    encrypt (text) {
-        if (text == null) {
-            return;
-        }
-        if (this.key == null) {
-            throw new Error(messages.get('keychainPasswordCreationError'));
-        }
-        const iv = crypto.randomBytes(BYTE_COUNT_FOR_IV).toString('hex');
-        return this.key.value((buffer) => {
-            const cipher = crypto.createCipheriv(ALGO, buffer.toString('utf8'), iv);
-            let encrypted = cipher.update(text, 'utf8', 'hex');
-            encrypted += cipher.final('hex');
-            const tag = cipher.getAuthTag().toString('hex');
-            return `${iv}${encrypted}${TAG_DELIMITER}${tag}`;
-        });
     }
 
     decrypt (text) {
@@ -181,7 +163,7 @@ export class Crypto {
         if (!this.options.platform) {
             this.options.platform = os.platform();
         }
-        console.error(`retryStatus: ${this.options.retryStatus}`);
+        // console.error(`retryStatus: ${this.options.retryStatus}`);
         this.noResetOnClose = !!this.options.noResetOnClose;
         try {
             this.key.consume(Buffer.from((await keychainPromises.getPassword(await this.getKeyChain(this.options.platform), KEY_NAME, ACCOUNT))
@@ -213,5 +195,3 @@ export class Crypto {
         return this.options.keychain;
     }
 }
-// exports.Crypto = Crypto;
-// # sourceMappingURL=crypto.js.map

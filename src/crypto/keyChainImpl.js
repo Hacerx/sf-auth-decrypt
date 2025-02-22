@@ -11,8 +11,6 @@ import path from 'path';
 import { Global } from '../utils/global.js';
 import { parseJsonMap } from '../utils/json.js';
 
-// exports.keyChainImpl = exports.GenericWindowsKeychainAccess = exports.GenericUnixKeychainAccess = exports.GenericKeychainAccess = exports.KeychainAccess = void 0;
-
 const GET_PASSWORD_RETRY_COUNT = 3;
 /**
  * Helper to reduce an array of cli args down to a presentable string for logging.
@@ -64,7 +62,7 @@ const _validateProgram = async (programPath, fsIfc, isExeIfc
 /**
  * @private
  */
-class KeychainAccess {
+export class KeychainAccess {
     /**
      * Abstract prototype for general cross platform keychain interaction.
      *
@@ -174,7 +172,7 @@ class KeychainAccess {
         }
     }
 }
-// exports.KeychainAccess = KeychainAccess;
+
 /**
  * Linux implementation.
  *
@@ -324,11 +322,9 @@ async function readFile () {
         service: fileContents[SecretField.SERVICE] ?? ''
     };
 }
-// istanbul ignore next - getPassword/setPassword is always mocked out
-/**
- * @@ignore
- */
-class GenericKeychainAccess {
+
+
+export class GenericKeychainAccess {
     async getPassword (opts, fn) {
         // validate the file in .sfdx
         await this.isValidFileAccess(async (fileAccessError) => {
@@ -386,12 +382,9 @@ class GenericKeychainAccess {
         }
     }
 }
-// exports.GenericKeychainAccess = GenericKeychainAccess;
-/**
- * @ignore
- */
-// istanbul ignore next - getPassword/setPassword is always mocked out
-class GenericUnixKeychainAccess extends GenericKeychainAccess {
+
+
+export class GenericUnixKeychainAccess extends GenericKeychainAccess {
     async isValidFileAccess (cb) {
         await super.isValidFileAccess(async (err) => {
             if (err != null) {
@@ -410,11 +403,9 @@ class GenericUnixKeychainAccess extends GenericKeychainAccess {
         });
     }
 }
-// exports.GenericUnixKeychainAccess = GenericUnixKeychainAccess;
-/**
- * @ignore
- */
-class GenericWindowsKeychainAccess extends GenericKeychainAccess {
+
+
+export class GenericWindowsKeychainAccess extends GenericKeychainAccess {
     async isValidFileAccess (cb) {
         await super.isValidFileAccess(async (err) => {
             if (err != null) {
@@ -432,7 +423,7 @@ class GenericWindowsKeychainAccess extends GenericKeychainAccess {
 }
 // exports.GenericWindowsKeychainAccess = GenericWindowsKeychainAccess;
 
-const keyChainImpl = {
+export const keyChainImpl = {
     // eslint-disable-next-line camelcase
     generic_unix: new GenericUnixKeychainAccess(),
     // eslint-disable-next-line camelcase
@@ -440,18 +431,4 @@ const keyChainImpl = {
     darwin: new KeychainAccess(darwinImpl, fs),
     linux: new KeychainAccess(linuxImpl, fs),
     validateProgram: _validateProgram
-};
-
-/**
- * @ignore
- */
-// exports.keyChainImpl = keyChainImpl;
-// # sourceMappingURL=keyChainImpl.js.map
-
-export {
-    GenericKeychainAccess,
-    GenericUnixKeychainAccess,
-    GenericWindowsKeychainAccess,
-    KeychainAccess,
-    keyChainImpl
 };
