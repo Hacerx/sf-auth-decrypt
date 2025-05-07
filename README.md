@@ -15,9 +15,7 @@ Ensure you have the following installed before using this tool:
 
 ## Usage
 ```js
-import { getAlias } from "./src/index.js";
-import { getOrgs } from "./src/orgs.js";
-import { getOrgsMap } from "./src/index.js";
+import { getOrgsMap, getOrgs, getAlias } from "@hacerx/sf-auth-decrypt";
 
 console.log(await getAlias())
 console.log(await getOrgs())
