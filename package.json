@@ -1,5 +1,5 @@
 {
-  "name": "sf-auth-decrypt",
+  "name": "@hacerx/sf-auth-decrypt",
   "version": "1.0.0",
   "description": "A minimal module to decrypt salesforce auth tokens stored in the .sfdx folder",
   "main": "src/index.js",
@@ -7,7 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module"
+  "author": "Hacerx",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hacerx/sf-auth-decrypt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hacerx/sf-auth-decrypt/issues"
+  },
+  "homepage": "https://github.com/Hacerx/sf-auth-decrypt#readme"
 }
