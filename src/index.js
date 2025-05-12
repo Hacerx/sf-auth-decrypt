@@ -1,6 +1,10 @@
 import { getAlias } from "./alias.js";
 import { getOrgs, getOrg } from "./orgs.js";
 
+/**
+ * Get an object with alias as key and org data as value
+ * @returns {Promise<Record<string, OrgData>>}
+ */
 export async function getOrgsMap(){
     const alias = await getAlias();
     const orgs = await getOrgs();
