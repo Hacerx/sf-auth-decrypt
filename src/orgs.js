@@ -29,7 +29,7 @@ export async function getOrg(path){
 /**
  * Get all org data contained in a directory
  * @param {string} path Directory path of org files
- * @returns {Promise<OrgData[]>}
+ * @returns {Promise<import('./types/orgs.js').OrgData[]>}
  */
 export async function getOrgs(path = Global.DIR){
     const result = [];

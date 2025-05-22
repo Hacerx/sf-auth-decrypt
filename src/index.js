@@ -3,7 +3,7 @@ import { getOrgs, getOrg } from "./orgs.js";
 
 /**
  * Get an object with alias as key and org data as value
- * @returns {Promise<Record<string, OrgData>>}
+ * @returns {Promise<Record<string, import('./types/orgs.js').OrgData>>}
  */
 export async function getOrgsMap(){
     const alias = await getAlias();

@@ -8,7 +8,7 @@ export const ALIAS_FILENAME = 'alias.json';
 /**
  * Get alias file content
  * @param {string} path alias directory path
- * @returns {Promise<AliasFileContent>}
+ * @returns {Promise<import('./types/alias.js').AliasFileContent>}
  */
 export async function getAlias(path = join(Global.DIR, ALIAS_FILENAME)) {
 
