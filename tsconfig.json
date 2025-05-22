@@ -1,0 +1,29 @@
+{
+    "include": [
+        "**/*.js",
+        "**/*.ts",
+        "**/*.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "compilerOptions": {
+        "target": "ES2022",  
+        "module": "ESNext",  
+        "moduleResolution": "node",  
+        "declaration": true,
+        "allowJs": true,
+        "outDir": "dist",
+        "noImplicitAny": true,  
+        "strictNullChecks": true,  
+        "strictFunctionTypes": true,  
+        "noImplicitReturns": true,  
+        "noFallthroughCasesInSwitch": true,  
+        "noImplicitOverride": true,  
+        "exactOptionalPropertyTypes": true,  
+        "noPropertyAccessFromIndexSignature": true,  
+        "noUncheckedIndexedAccess": true,
+        "types": ["node"]
+    }
+}
