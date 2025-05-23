@@ -13,7 +13,7 @@ await crypto.init();
 /**
  * Get org file content
  * @param {string} path org file path
- * @returns {Promise<OrgData>}
+ * @returns {Promise<import('./types/orgs.js').OrgData>}
  */
 export async function getOrg(path){
     if(!existsSync(path)) {
